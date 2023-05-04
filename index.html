@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Quick Notes</title>
+  </head>
+
+  <body>
+    <h1>Quick Notes</h1>
+    <form>
+      <textarea placeholder="Enter your new note" class="textarea"></textarea>
+      <ul id="toolbar">
+        <li>
+          <button type="submit">Save</button>
+        </li>
+      </ul>
+    </form>
+
+    <ul id="toolbar">
+      <li>
+        <button id="btnLearn">Learn</button>
+      </li>
+      <li>
+        <button id="btnShare">Share</button>
+      </li>
+      <li id="itemInstall">
+        <button id="btnInstall">Install</button>
+      </li>
+    </ul>
+    <ul id="notes"></ul>
+  </body>
+  <script src="./app.js"></script>
+</html>

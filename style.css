@@ -1,0 +1,109 @@
+body {
+  --baseBG: #fee8b0;
+  --titleBG: #f97b22;
+  --titleText: #594545;
+  --textAreaBG: #fef0d7;
+  --noteText: rgb(67, 66, 66);
+  --toolbarBG: #9ca777;
+  --noteBtnText: black;
+}
+
+body {
+  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro,
+    sans-serif;
+  background-color: var(--baseBG);
+  margin: 0;
+}
+
+h1 {
+  font-size: large;
+  text-align: center;
+  background-color: var(--titleBG);
+  color: var(--titleText);
+  padding: 16px;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  margin: 5px;
+}
+
+form {
+  margin: 16px;
+  text-align: center;
+}
+
+textarea {
+  display: block;
+  width: 90%;
+  margin: 8px auto;
+  padding: 10px;
+  height: 60px;
+  font-size: 16px;
+  background-color: var(--textAreaBG);
+}
+
+button {
+  display: block;
+  text-decoration: none;
+  background-color: var(--toolbarBG);
+  color: var(--noteBtnText);
+  font-size: 13px;
+  padding: 8px 8px;
+  line-height: 1;
+  margin: 8px 8px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+#notes {
+  flex-flow: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: center;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+  color: var(--noteText);
+}
+
+#notes li {
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+#notes .icon {
+  margin-left: 10px;
+  border: 1px solid var(--titleText);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+#toolbar {
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+body > #toolbar {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  background-color: var(--toolbarBG);
+}
+
+@media (display-mode: standalone), (display-mode: minimal-ui) {
+  body > #toolbar {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+      env(safe-area-inset-left) !important;
+  }
+
+  #itemInstall {
+    display: none;
+  }
+}
