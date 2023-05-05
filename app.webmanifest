@@ -9,7 +9,8 @@
     {
       "src": "./assets/icons/icon_512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./assets/icons/icon_1024.png",
@@ -30,5 +31,7 @@
       "sizes": "1024x1024",
       "type": "image/png"
     }
-  ]
+  ],
+  "background_color": "#6197b1",
+  "orientation": "any"
 }
