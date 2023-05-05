@@ -1,0 +1,26 @@
+{
+  "name": "Quick Note: clear your mind instantly",
+  "short_name": "Quick Note",
+  "start_url": "./",
+  "theme_color": "#ed6606",
+  "scope": "./",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./assets/icons/icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon_1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon_512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

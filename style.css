@@ -1,6 +1,7 @@
 body {
   --baseBG: #fee8b0;
   --titleBG: #f97b22;
+  --themeColor: #ed6606;
   --titleText: #594545;
   --textAreaBG: #fef0d7;
   --noteText: rgb(67, 66, 66);
@@ -22,6 +23,10 @@ h1 {
   color: var(--titleText);
   padding: 16px;
   margin: 0;
+
+  /* to prevent user from selecting text in app */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 ul {
@@ -58,6 +63,9 @@ button {
   margin: 8px 8px;
   font-weight: bold;
   border-radius: 8px;
+
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #notes {
@@ -80,6 +88,9 @@ button {
   border: 1px solid var(--titleText);
   border-radius: 20px;
   padding: 5px;
+
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #toolbar {
@@ -95,8 +106,11 @@ body > #toolbar {
   margin: 0;
   width: 100%;
   background-color: var(--toolbarBG);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
+/* to keep footer interactive, else it will be rendered in unsafe zone and not clickable */
 @media (display-mode: standalone), (display-mode: minimal-ui) {
   body > #toolbar {
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
