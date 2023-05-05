@@ -12,20 +12,36 @@ self.addEventListener("install", (event) => {
 
 // fetch the assets
 self.addEventListener("fetch", (event) => {
-  async function fetchAssets(event) {
-    const assetsCache = await caches.open("assets");
-    const cachedResponse = await assetsCache.match(event.request);
-
-    // cache hit - return response
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-    // cache miss - fetch from network
-    else {
-      const response = await fetch(event.request);
-      assetsCache.put(event.request, response.clone());
-      return response;
-    }
-  }
-  event.respondWith(fetchAssets(event));
+  event.respondWith(fetchAssetsStaleWhileRevalidate(event));
 });
+
+// ======================================================
+async function fetchAssetsStaleWhileRevalidate(event) {
+  const assetsCache = await caches.open("assets");
+  const cachedResponse = await assetsCache.match(event.request);
+
+  // even if cache is present, fetch from network
+  const networkResponse = await fetch(event.request);
+  const responseToCache = networkResponse.clone();
+
+  await assetsCache.put(event.request, responseToCache);
+
+  return cachedResponse || networkResponse;
+}
+
+async function fetchAssetsCacheFirst(event) {
+  const assetsCache = await caches.open("assets");
+  const cachedResponse = await assetsCache.match(event.request);
+
+  // cache hit - return response
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+  // cache miss - fetch from network
+  else {
+    const response = await fetch(event.request);
+    assetsCache.put(event.request, response.clone());
+    return response;
+  }
+}
+// ======================================================
