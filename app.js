@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     location.href = "https://frontendmasters.com";
   });
 
-  let bipEvent = null;
+  let bipEvent = null; // beforeinstallprompt` event
 
   /**
    * Handles the "beforeinstallprompt" event and sets the "bipEvent" variable to the event object.
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       notesString += note + " | ";
     }
     navigator.share({
-      title: "Codepad",
+      title: "Quick Note",
       text: notesString,
     });
   });

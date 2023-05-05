@@ -22,5 +22,13 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "description": "Quick Note is a simple note taking app that helps you clear your mind instantly",
+  "screenshots": [
+    {
+      "src": "./assets/images/screenshot-1.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
   ]
 }
