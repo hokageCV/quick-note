@@ -75,6 +75,8 @@ button {
   border-radius: 8px;
   border-color: var(--btnBorder);
 
+  cursor: pointer;
+
   user-select: none;
   -webkit-user-select: none;
 }
@@ -96,9 +98,10 @@ button {
 
 #notes .icon {
   margin-left: 10px;
-  border: 1px solid var(--titleText);
-  border-radius: 20px;
-  padding: 5px;
+
+  height: 15px;
+  width: auto;
+  cursor: pointer;
 
   user-select: none;
   -webkit-user-select: none;

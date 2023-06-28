@@ -1,56 +1,33 @@
 let notes = [];
 
-/**
- * Handles the "DOMContentLoaded" event and sets up event listeners for the form submit button, the "Learn" button,
- * the "Install" button, and the "Share" button.
- * @param {Event} event - The "DOMContentLoaded" event.
- */
 document.addEventListener("DOMContentLoaded", (event) => {
   if (localStorage.getItem("notes")) {
     notes = JSON.parse(localStorage.getItem("notes"));
   }
   renderNotes(notes);
 
-  /**
-   * Handles the "submit" event for the form element and adds a new note to the list of notes.
-   * @param {Event} event - The "submit" event for the form element.
-   */
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
     const note = document.querySelector("textarea").value;
     addNote(notes, note);
   });
 
-  /**
-   * Handles the "click" event for the "Learn" button and redirects the user to the Frontend Masters website.
-   * @param {Event} event - The "click" event for the "Learn" button.
-   */
   document.querySelector("#btnLearn").addEventListener("click", (event) => {
     location.href = "https://frontendmasters.com";
   });
 
   let bipEvent = null; // beforeinstallprompt` event
 
-  /**
-   * Handles the "beforeinstallprompt" event and sets the "bipEvent" variable to the event object.
-   * @param {Event} event - The "beforeinstallprompt" event.
-   */
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     bipEvent = event;
   });
 
-  /**
-   * Handles the "click" event for the "Install" button and prompts the user to install the app if the browser supports it,
-   * or shows an alert message with instructions on how to install the app otherwise.
-   * @param {Event} event - The "click" event for the "Install" button.
-   */
   document.querySelector("#btnInstall").addEventListener("click", (event) => {
     if (bipEvent) {
       bipEvent.prompt();
     } else {
-      // incompatible browser, your PWA is not passing the criteria, the user has already installed the PWA
-      //TODO: show the user information on how to install the app
+      // incompatible browser, PWA is not passing the criteria, the user has already installed the PWA
       alert("To install the app look for Add to Homescreen or Install in your browser's menu");
     }
   });
@@ -81,7 +58,7 @@ function renderNotes(notes) {
     li.innerHTML = note;
 
     const deleteButton = document.createElement("a");
-    deleteButton.innerHTML = '<span class="icon">delete</span>';
+    deleteButton.innerHTML = '<img src="./assets/icons/delete.png" class="icon" alt="Delete">';
     deleteButton.addEventListener("click", (e) => deleteNote(notes, index));
 
     li.appendChild(deleteButton);
