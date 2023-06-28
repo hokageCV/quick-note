@@ -12,10 +12,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     addNote(notes, note);
   });
 
-  document.querySelector("#btnLearn").addEventListener("click", (event) => {
-    location.href = "https://frontendmasters.com";
-  });
-
   let bipEvent = null; // beforeinstallprompt` event
 
   window.addEventListener("beforeinstallprompt", (event) => {
