@@ -1,12 +1,17 @@
-body {
+:root {
   --baseBG: #fee8b0;
   --titleBG: #f97b22;
-  --themeColor: #ed6606;
-  --titleText: #594545;
+  --titleText: #feede0;
+
   --textAreaBG: #fef0d7;
   --noteText: rgb(67, 66, 66);
-  --toolbarBG: #9ca777;
   --noteBtnText: black;
+
+  --toolbarBG: #ffbd77;
+
+  --btnBG: #e0894c;
+  --btnText: #fdf7f3;
+  --btnBorder: #1b0c01;
 }
 
 body {
@@ -17,12 +22,15 @@ body {
 }
 
 h1 {
-  font-size: large;
+  font-size: 32px;
   text-align: center;
   background-color: var(--titleBG);
   color: var(--titleText);
   padding: 16px;
   margin: 0;
+
+  /* shadow  */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   /* to prevent user from selecting text in app */
   user-select: none;
@@ -39,6 +47,7 @@ ul {
 
 form {
   margin: 16px;
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -50,19 +59,21 @@ textarea {
   height: 60px;
   font-size: 16px;
   background-color: var(--textAreaBG);
+  border-radius: 15px;
 }
 
 button {
   display: block;
   text-decoration: none;
-  background-color: var(--toolbarBG);
-  color: var(--noteBtnText);
+  background-color: var(--btnBG);
+  color: var(--btnText);
   font-size: 13px;
   padding: 8px 8px;
   line-height: 1;
   margin: 8px 8px;
   font-weight: bold;
   border-radius: 8px;
+  border-color: var(--btnBorder);
 
   user-select: none;
   -webkit-user-select: none;
